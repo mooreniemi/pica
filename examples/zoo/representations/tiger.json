@@ -1,5 +1,5 @@
 {
-  "representation_uuid": "oliver_33",
+  "representation_uuid": "tiger:51e50c5f-83e5-4622-ae8a-85bf4b820580",
   "name":"oliver",
   "id":33,
   "caged":true,
@@ -20,7 +20,7 @@
       "name":"feed_him",
       "method":"PUT",
       "url":"tigers/oliver/stomach",
-      "return_type": "tiger:oliver_33",
+      "return_type": "tiger:51e50c5f-83e5-4622-ae8a-85bf4b820580",
       "params":{
         "food_type":"meat",
         "quantity":1
