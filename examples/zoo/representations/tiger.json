@@ -7,14 +7,14 @@
 		{
 			"name":"free-him",
 			"method":"DELETE",
-			"url":"tigers/cages/oliver"
-      "return-type": "empty-cage",
+			"url":"tigers/cages/oliver",
+      "return_type": "empty-cage"
 		},
 		{
 			"name":"feed-him",
 			"method":"PUT",
 			"url":"tigers/oliver/stomach",
-      "return-type": "tiger",
+      "return_type": "tiger",
 			"params":{
 				"food-type":"meat",
 				"quantity":1
