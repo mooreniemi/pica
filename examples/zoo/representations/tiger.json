@@ -1,10 +1,14 @@
 {
-  "representation_type":"tiger",
   "name":"oliver",
   "id":33,
   "caged":true,
   "stomach": "empty",
   "affordances":[
+    {
+      "name": "self",
+      "url": "tigers/oliver",
+      "return_type": "tiger"
+    },
     {
       "name":"free_him",
       "method":"DELETE",
@@ -20,6 +24,12 @@
         "food_type":"meat",
         "quantity":1
       }
+    },
+    {
+      "name":"up",
+      "method": "GET",
+      "url": "animals",
+      "return_type": "animals"
     }
   ]
 }
