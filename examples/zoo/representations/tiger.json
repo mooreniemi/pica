@@ -1,24 +1,25 @@
 {
-	"representation_type":"tiger",
-	"name":"oliver",
-	"id":33,
-	"caged":true,
-	"affordances":[
-		{
-			"name":"free-him",
-			"method":"DELETE",
-			"url":"tigers/cages/oliver",
+  "representation_type":"tiger",
+  "name":"oliver",
+  "id":33,
+  "caged":true,
+  "stomach": "empty",
+  "affordances":[
+    {
+      "name":"free-him",
+      "method":"DELETE",
+      "url":"tigers/cages/oliver",
       "return_type": "empty-cage"
-		},
-		{
-			"name":"feed-him",
-			"method":"PUT",
-			"url":"tigers/oliver/stomach",
+    },
+    {
+      "name":"feed-him",
+      "method":"PUT",
+      "url":"tigers/oliver/stomach",
       "return_type": "tiger",
-			"params":{
-				"food-type":"meat",
-				"quantity":1
-			}
-		}
-	]
+      "params":{
+        "food-type":"meat",
+        "quantity":1
+      }
+    }
+  ]
 }
