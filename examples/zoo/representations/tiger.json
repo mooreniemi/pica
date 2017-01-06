@@ -6,18 +6,18 @@
   "stomach": "empty",
   "affordances":[
     {
-      "name":"free-him",
+      "name":"free_him",
       "method":"DELETE",
       "url":"tigers/cages/oliver",
-      "return_type": "empty-cage"
+      "return_type": "empty_cage"
     },
     {
-      "name":"feed-him",
+      "name":"feed_him",
       "method":"PUT",
       "url":"tigers/oliver/stomach",
       "return_type": "tiger",
       "params":{
-        "food-type":"meat",
+        "food_type":"meat",
         "quantity":1
       }
     }
