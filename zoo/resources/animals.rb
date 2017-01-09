@@ -1,12 +1,17 @@
 require 'sinatra/base'
 
-module Zoo
-  module Resources
-    class Animal < Sinatra::Application
-        get '' do
-# replace with your logic
-"you sent: #{params}"
+module Sinatra
+  module Zoo
+    module Resources
+      module Animal
+        def self.registered(app)
+          app.get '/' do
+          # replace with your logic
+          "you sent: #{params}"
+          end
+        end
       end
     end
   end
+  register Sinatra::Zoo::Resources::Animal
 end

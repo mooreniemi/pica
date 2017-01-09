@@ -3,8 +3,7 @@ require 'sinatra/base'
 <% end %>
 
 class <%= app_name.classify %>App < Sinatra::Application
-<% @routes.each do |r| %>
-  use <%= app_name.classify %>::Resources::<%= r.class_name %>
+<% @routes.each do |r| %>  register Sinatra::<%= app_name.classify %>::Resources::<%= r.class_name %>
 <% end %>
   get '/' do
     "root"

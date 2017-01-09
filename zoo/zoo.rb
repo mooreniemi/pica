@@ -7,16 +7,11 @@ require './resources/feed_him.rb'
 
 
 class ZooApp < Sinatra::Application
-
-  use Zoo::Resources::Animal
-
-  use Zoo::Resources::AddAnimal
-
-  use Zoo::Resources::Tiger
-
-  use Zoo::Resources::FreeHim
-
-  use Zoo::Resources::FeedHim
+  register Sinatra::Zoo::Resources::Animal
+  register Sinatra::Zoo::Resources::AddAnimal
+  register Sinatra::Zoo::Resources::Tiger
+  register Sinatra::Zoo::Resources::FreeHim
+  register Sinatra::Zoo::Resources::FeedHim
 
   get '/' do
     "root"
