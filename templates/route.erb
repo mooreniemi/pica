@@ -1,0 +1,12 @@
+require 'sinatra/base'
+
+module <%= app_name.classify %>
+  module Resources
+    class <%= @representation.name.classify %> < Sinatra::Application
+        <%= (@representation.http_method || "GET").downcase %> '<%= @representation.url_template %>' do
+# replace with your logic
+"you sent: #{params}"
+      end
+    end
+  end
+end

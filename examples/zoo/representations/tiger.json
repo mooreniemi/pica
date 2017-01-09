@@ -1,6 +1,6 @@
 {
   "representation_uuid": "tiger:51e50c5f-83e5-4622-ae8a-85bf4b820580",
-  "embedded_or_full": "embedded",
+  "embedded_or_full": "full",
   "name":"oliver",
   "id":33,
   "caged":true,
@@ -8,19 +8,22 @@
   "affordances":[
     {
       "name": "self",
-      "url": "tigers/oliver",
+      "url_template":"animals/tigers/:animal_name",
+      "url": "animals/tigers/oliver",
       "return_type": "tiger:33"
     },
     {
       "name":"free_him",
-      "method":"DELETE",
-      "url":"tigers/cages/oliver",
+      "http_method":"DELETE",
+      "url_template":"animals/tigers/cages/:animal_name",
+      "url":"animals/tigers/cages/oliver",
       "return_type": "empty_cage"
     },
     {
       "name":"feed_him",
-      "method":"PUT",
-      "url":"tigers/oliver/stomach",
+      "http_method":"PUT",
+      "url_template":"animals/tigers/:animal_name/stomach",
+      "url":"animals/tigers/oliver/stomach",
       "return_type": "tiger:33",
       "params":{
         "food_type":"meat",
@@ -29,7 +32,7 @@
     },
     {
       "name":"up",
-      "method": "GET",
+      "http_method": "GET",
       "url": "animals",
       "return_type": "animals"
     }

@@ -9,7 +9,7 @@
       "affordances":[
         {
           "name": "self",
-          "url": "tigers/oliver",
+          "url": "animals/tigers/oliver",
           "return_type": "tiger:33"
         }
       ]
@@ -23,8 +23,8 @@
     },
     {
       "name":"add_animal",
-      "method":"POST",
-      "url":"animals/:animal_type",
+      "http_method":"POST",
+      "url_template":"animals/:animal_type",
       "return_type": ":animal_type::id",
       "params":{
         "name":"default name"
@@ -32,7 +32,7 @@
     },
     {
       "name":"up",
-      "method": "GET",
+      "http_method": "GET",
       "url": "animals",
       "return_type": "animals"
     }

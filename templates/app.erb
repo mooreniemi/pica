@@ -1,0 +1,12 @@
+require 'sinatra/base'
+<% @routes.each do |r| %>require '<%= r.file_name %>'
+<% end %>
+
+class <%= app_name.classify %>App < Sinatra::Application
+<% @routes.each do |r| %>
+  use <%= app_name.classify %>::Resources::<%= r.class_name %>
+<% end %>
+  get '/' do
+    "root"
+  end
+end
