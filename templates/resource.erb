@@ -6,7 +6,7 @@ module Sinatra
       module <%= @representation.name.classify %>
         def self.registered(app)
           app.<%= (@representation.http_method || "GET").downcase %> '/<%= @representation.url_template %>' do
-            # TODO replace with your logic returning <%= @representation.return_type.split(':').first %>
+            # TODO replace with your logic returning <%= @representation.return_type.split('#').first %>
             "params: #{params}"
           end
         end

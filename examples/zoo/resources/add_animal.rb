@@ -6,7 +6,7 @@ module Sinatra
       module AddAnimal
         def self.registered(app)
           app.post '/animals/:animal_type' do
-            # TODO replace with your logic returning 
+            # TODO replace with your logic returning :animal_type::id
             "params: #{params}"
           end
         end

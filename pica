@@ -16,7 +16,7 @@ end
 
 def print_affordances(o)
   hash = hash_affordances(o)
-  puts "#{o.representation_uuid.split(':').first} affordances:"
+  puts "#{o.representation_uuid.split('#').first} affordances:"
   ap hash
 end
 
@@ -53,7 +53,7 @@ class Pica < Thor
     resources.flatten.each do |r|
       @representation = r
       if SPECIAL_RESOURCES.include?(r.name)
-        name = r.return_type.split(':').first
+        name = r.return_type.split('#').first
         @representation.name = name
       end
 

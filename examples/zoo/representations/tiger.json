@@ -1,5 +1,5 @@
 {
-  "representation_uuid": "tiger:51e50c5f-83e5-4622-ae8a-85bf4b820580",
+  "representation_uuid": "tiger#51e50c5f-83e5-4622-ae8a-85bf4b820580",
   "embedded_or_full": "full",
   "name":"oliver",
   "id":33,
@@ -10,7 +10,7 @@
       "name": "self",
       "url_template":"animals/tigers/:animal_name",
       "url": "animals/tigers/oliver",
-      "return_type": "tiger:33"
+      "return_type": "tiger#33"
     },
     {
       "name":"free_him",
@@ -24,7 +24,7 @@
       "http_method":"PUT",
       "url_template":"animals/tigers/:animal_name/stomach",
       "url":"animals/tigers/oliver/stomach",
-      "return_type": "tiger:33",
+      "return_type": "tiger#33",
       "params":{
         "food_type":"meat",
         "quantity":1
