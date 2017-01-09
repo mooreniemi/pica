@@ -6,7 +6,7 @@ module Sinatra
       module AnimalType
         def self.registered(app)
           app.get '/animals/:animal_type' do
-            # TODO replace with your logic returning :animal_type
+            # TODO replace with your logic returning animal_type
             "params: #{params}"
           end
         end
