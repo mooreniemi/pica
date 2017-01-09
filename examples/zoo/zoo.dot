@@ -1,5 +1,13 @@
 digraph {
 	
+	  animal_type -> animal_type [label="self"];
+  
+	  animal_type -> tigers [label="tigers"];
+  
+	  animal_type -> animals [label="up"];
+  
+	  animal_type -> animals [label="root"];
+  
 	  animals -> animals [label="self"];
   
 	  animals -> animal_type [label="add_animal"];
