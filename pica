@@ -2,7 +2,24 @@
 
 require 'json'
 require 'ostruct'
+require 'awesome_print'
 
-tiger = JSON.parse(File.read('./examples/zoo/representations/tiger.json'), object_class: OpenStruct)
-hash = { "#{tiger.representation_uuid}": Hash[tiger.affordances.map(&:name).zip(tiger.affordances.map(&:return_type))] }
-p hash
+def read_json(file_name)
+  JSON.parse(File.read(file_name), object_class: OpenStruct)
+end
+
+def hash_affordances(o)
+  { "#{o.representation_uuid}": Hash[o.affordances.map(&:name).zip(o.affordances.map(&:return_type))] }
+end
+
+def print_affordances(o)
+  hash = hash_affordances(o)
+  puts "#{o.representation_uuid.split(':').first} affordances:"
+  ap hash
+end
+
+tiger = read_json('./examples/zoo/representations/tiger.json')
+print_affordances(tiger)
+
+animals = read_json('./examples/zoo/representations/animals.json')
+print_affordances(animals)

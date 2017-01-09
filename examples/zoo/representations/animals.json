@@ -1,0 +1,40 @@
+{
+  "representation_uuid": "animals:b806cfb4-6e0f-453b-a33a-bdd7c35f8d3c",
+  "name":"animals",
+  "items": [
+    {
+      "representation_uuid": "tiger:51e50c5f-83e5-4622-ae8a-85bf4b820580",
+      "embedded_or_full": "embedded",
+      "name":"oliver",
+      "affordances":[
+        {
+          "name": "self",
+          "url": "tigers/oliver",
+          "return_type": "tiger:33"
+        }
+      ]
+    }
+  ],
+  "affordances":[
+    {
+      "name": "self",
+      "url": "/animals",
+      "return_type": "animals"
+    },
+    {
+      "name":"add_animal",
+      "method":"POST",
+      "url":"animals/:animal_type",
+      "return_type": ":animal_type::id",
+      "params":{
+        "name":"default name"
+      }
+    },
+    {
+      "name":"up",
+      "method": "GET",
+      "url": "animals",
+      "return_type": "animals"
+    }
+  ]
+}

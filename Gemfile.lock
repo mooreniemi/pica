@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.7.0)
     coderay (1.1.1)
     declarative (0.0.8)
       uber (>= 0.0.15)
@@ -19,6 +20,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   pry
   representable
 
