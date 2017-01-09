@@ -40,6 +40,11 @@
       "name":"up",
       "url": "animals",
       "return_type": "animals"
+    },
+    {
+      "name":"root",
+      "url": "animals",
+      "return_type": "animals"
     }
   ]
 }

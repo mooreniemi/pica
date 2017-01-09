@@ -1,0 +1,23 @@
+digraph {
+	
+	  animals -> animals [label="self"];
+  
+	  animals -> animal_type#id [label="add_animal"];
+  
+	  animals -> animal_type [label="animal_type"];
+  
+	  animals -> animals [label="up"];
+  
+	  animals -> animals [label="root"];
+  
+	  tiger -> tiger#33 [label="self"];
+  
+	  tiger -> empty_cage [label="free_him"];
+  
+	  tiger -> tiger#33 [label="feed_him"];
+  
+	  tiger -> tigers [label="up"];
+  
+	  tiger -> animals [label="root"];
+  
+}

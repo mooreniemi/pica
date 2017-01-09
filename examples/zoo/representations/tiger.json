@@ -31,13 +31,13 @@
       }
     },
     {
-      "name": "generic_parent",
+      "name": "up",
       "url": "tigers",
       "url_template": "tigers",
       "return_type": "tigers"
     },
     {
-      "name":"up",
+      "name":"root",
       "url": "animals",
       "return_type": "animals"
     }
