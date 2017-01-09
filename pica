@@ -24,6 +24,9 @@ require 'active_support/inflector'
 require 'thor'
 
 class Pica < Thor
+  # NOTE: "special" means their name is generic and
+  # thus we need to peek at the input/output rather
+  # than rely on the link relation to specify
   SPECIAL_RESOURCES = ["self", "up", "generic_parent"]
   attr_accessor :app_name
   include Thor::Actions
