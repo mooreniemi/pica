@@ -20,12 +20,6 @@ def print_affordances(o)
   ap hash
 end
 
-tiger = read_json('./examples/zoo/representations/tiger.json')
-print_affordances(tiger)
-
-animals = read_json('./examples/zoo/representations/animals.json')
-print_affordances(animals)
-
 require 'active_support/inflector'
 require 'thor'
 
@@ -36,10 +30,19 @@ class Pica < Thor
 
   desc "g <directory of representations> <optional: app name>",
        "generates Sinatra app, uses default file name for app name if none given"
+  desc "graph <directory of representations>",
+       "show the state diagram of actions between representations"
   option :force, :type => :boolean
 
   def self.source_root
     File.dirname(__FILE__)
+  end
+
+  def graph(representations_dir)
+    # TODO: actual map amongst resources
+    Dir.glob("#{representations_dir}/*.json") do |json_file|
+      print_affordances(read_json(json_file))
+    end
   end
 
   def g(representations_dir, app_name = "ExamplePicaApp")
