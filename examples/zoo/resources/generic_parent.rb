@@ -3,9 +3,9 @@ require 'sinatra/base'
 module Sinatra
   module Zoo
     module Resources
-      module AddAnimal
+      module GenericParent
         def self.registered(app)
-          app.post '/animals/:animal_type' do
+          app.get '/:animal_type' do
             # TODO replace with your logic returning :animal_type
             "params: #{params}"
           end
@@ -13,5 +13,5 @@ module Sinatra
       end
     end
   end
-  register Sinatra::Zoo::Resources::AddAnimal
+  register Sinatra::Zoo::Resources::GenericParent
 end

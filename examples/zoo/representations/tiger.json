@@ -31,6 +31,12 @@
       }
     },
     {
+      "name": "generic_parent",
+      "url": "tigers",
+      "url_template": ":animal_type",
+      "return_type": "animals#animal_type"
+    },
+    {
       "name":"up",
       "http_method": "GET",
       "url": "animals",

@@ -24,7 +24,7 @@ require 'active_support/inflector'
 require 'thor'
 
 class Pica < Thor
-  SPECIAL_RESOURCES = ["self", "up"]
+  SPECIAL_RESOURCES = ["self", "up", "generic_parent"]
   attr_accessor :app_name
   include Thor::Actions
 
@@ -47,6 +47,7 @@ class Pica < Thor
   def create_resources(representations_dir)
     resources = []
     Dir.glob("#{representations_dir}/*.json") do |json_file|
+      print_affordances(read_json(json_file))
       resources << read_json(json_file)["affordances"]
     end
 

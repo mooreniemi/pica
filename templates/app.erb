@@ -5,7 +5,4 @@ require 'sinatra/base'
 class <%= app_name.classify %>App < Sinatra::Application
 <% @routes.each do |r| %>  register Sinatra::<%= app_name.classify %>::Resources::<%= r.class_name %>
 <% end %>
-  get '/' do
-    "root"
-  end
 end

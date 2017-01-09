@@ -1,7 +1,7 @@
 {
   "representation_uuid": "animals#b806cfb4-6e0f-453b-a33a-bdd7c35f8d3c",
   "name":"animals",
-  "items": [
+  "tiger": [
     {
       "representation_uuid": "tiger#51e50c5f-83e5-4622-ae8a-85bf4b820580",
       "embedded_or_full": "embedded",
@@ -25,10 +25,16 @@
       "name":"add_animal",
       "http_method":"POST",
       "url_template":"animals/:animal_type",
-      "return_type": ":animal_type::id",
+      "return_type": "animal_type#id",
       "params":{
         "name":"default name"
       }
+    },
+    {
+      "name":"animal_type",
+      "http_method": "GET",
+      "url_template":"animals/:animal_type",
+      "return_type": "animal_type"
     },
     {
       "name":"up",
