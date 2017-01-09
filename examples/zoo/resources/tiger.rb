@@ -6,8 +6,8 @@ module Sinatra
       module Tiger
         def self.registered(app)
           app.get '/animals/tigers/:animal_name' do
-          # replace with your logic
-          "you sent: #{params}"
+            # TODO replace with your logic returning tiger
+            "params: #{params}"
           end
         end
       end

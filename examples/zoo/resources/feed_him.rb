@@ -6,8 +6,8 @@ module Sinatra
       module FeedHim
         def self.registered(app)
           app.put '/animals/tigers/:animal_name/stomach' do
-          # replace with your logic
-          "you sent: #{params}"
+            # TODO replace with your logic returning tiger
+            "params: #{params}"
           end
         end
       end

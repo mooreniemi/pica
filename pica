@@ -58,7 +58,7 @@ class Pica < Thor
       end
 
       template(
-        'templates/route.erb',
+        'templates/resource.erb',
         "#{app_name}/resources/#{@representation.name}.rb"
       )
     end

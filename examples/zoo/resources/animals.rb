@@ -6,8 +6,8 @@ module Sinatra
       module Animal
         def self.registered(app)
           app.get '/' do
-          # replace with your logic
-          "you sent: #{params}"
+            # TODO replace with your logic returning animals
+            "params: #{params}"
           end
         end
       end
