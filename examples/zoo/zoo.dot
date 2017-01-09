@@ -2,7 +2,7 @@ digraph {
 	
 	  animals -> animals [label="self"];
   
-	  animals -> animal_type#id [label="add_animal"];
+	  animals -> animal_type [label="add_animal"];
   
 	  animals -> animal_type [label="animal_type"];
   
@@ -10,11 +10,11 @@ digraph {
   
 	  animals -> animals [label="root"];
   
-	  tiger -> tiger#33 [label="self"];
+	  tiger -> tiger [label="self"];
   
 	  tiger -> empty_cage [label="free_him"];
   
-	  tiger -> tiger#33 [label="feed_him"];
+	  tiger -> tiger [label="feed_him"];
   
 	  tiger -> tigers [label="up"];
   

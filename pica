@@ -27,7 +27,7 @@ class Pica < Thor
   # NOTE: "special" means their name is generic and
   # thus we need to peek at the input/output rather
   # than rely on the link relation to specify
-  SPECIAL_RESOURCES = ["self", "up", "generic_parent"]
+  SPECIAL_RESOURCES = ["self", "up", "root"]
   attr_accessor :app_name
   include Thor::Actions
 
@@ -49,10 +49,27 @@ class Pica < Thor
   private
   def create_resources(representations_dir)
     resources = []
+    link_relations = []
     Dir.glob("#{representations_dir}/*.json") do |json_file|
-      print_affordances(read_json(json_file))
-      resources << read_json(json_file)["affordances"]
+      json = read_json(json_file)
+      print_affordances(json)
+      link_relations << hash_affordances(json)
+      resources << json["affordances"]
     end
+
+    @link_relations = []
+    link_relations.each do |e|
+      e.values.first.each_pair do |k, v|
+        @link_relations << OpenStruct.new(
+          {
+            input: e.keys.first.to_s.split('#').first,
+            output: v.split('#').first,
+            label: k.split('#').first
+          }
+        )
+      end
+    end
+    template('templates/dot.erb', "#{app_name}/#{app_name}.dot")
 
     resources.flatten.each do |r|
       @representation = r

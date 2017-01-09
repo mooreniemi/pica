@@ -1,0 +1,5 @@
+digraph {
+	<% @link_relations.each do |l| %>
+	  <%= l.input %> -> <%= l.output %> [label="<%= l.label %>"];
+  <% end %>
+}
