@@ -38,7 +38,6 @@
     },
     {
       "name":"up",
-      "http_method": "GET",
       "url": "animals",
       "return_type": "animals"
     }

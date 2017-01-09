@@ -33,12 +33,11 @@
     {
       "name": "generic_parent",
       "url": "tigers",
-      "url_template": ":animal_type",
-      "return_type": "animals#animal_type"
+      "url_template": "tigers",
+      "return_type": "tigers"
     },
     {
       "name":"up",
-      "http_method": "GET",
       "url": "animals",
       "return_type": "animals"
     }

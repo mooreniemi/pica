@@ -5,6 +5,7 @@ require './resources/animal_type.rb'
 require './resources/tiger.rb'
 require './resources/free_him.rb'
 require './resources/feed_him.rb'
+require './resources/tigers.rb'
 
 
 class ZooApp < Sinatra::Application
@@ -14,5 +15,6 @@ class ZooApp < Sinatra::Application
   register Sinatra::Zoo::Resources::Tiger
   register Sinatra::Zoo::Resources::FreeHim
   register Sinatra::Zoo::Resources::FeedHim
+  register Sinatra::Zoo::Resources::Tiger
 
 end
