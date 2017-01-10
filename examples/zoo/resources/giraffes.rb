@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 
 module Sinatra
   module Zoo
@@ -6,8 +7,8 @@ module Sinatra
       module Giraffe
         def self.registered(app)
           app.get '/animals/giraffes' do
-            # TODO replace with your logic returning giraffes
-            "params: #{params}"
+            content_type :json
+            {}.to_json
           end
         end
       end

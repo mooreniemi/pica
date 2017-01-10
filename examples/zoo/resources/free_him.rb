@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 
 module Sinatra
   module Zoo
@@ -6,8 +7,8 @@ module Sinatra
       module FreeHim
         def self.registered(app)
           app.delete '/animals/tigers/cages/:animal_name' do
-            # TODO replace with your logic returning empty_cage
-            "params: #{params}"
+            content_type :json
+            {}.to_json
           end
         end
       end
