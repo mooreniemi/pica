@@ -9,13 +9,15 @@ def read_json(file_name)
 end
 
 def hash_affordances(o)
-  affordances_by_name = Hash[o.affordances.map(&:name).
-                               zip(o.affordances.map(&:return_type))]
-  { "#{o.representation_uuid}": affordances_by_name }
+  affs = o.affordances.map { |a| [(a.http_method || "GET"), a.return_type] }
+  affordances_by_name = Hash[o.affordances.map(&:name).zip(affs)]
+  hash = { "#{o.representation_uuid}": affordances_by_name }
 end
 
 def print_affordances(o)
-  hash = hash_affordances(o)
+  affordances_by_name = Hash[o.affordances.map(&:name).
+                               zip(o.affordances.map(&:return_type))]
+  hash = { "#{o.representation_uuid}": affordances_by_name }
   puts "#{o.representation_uuid.split('#').first} affordances:"
   ap hash
 end
@@ -23,6 +25,7 @@ end
 require 'active_support/inflector'
 require 'thor'
 
+DELIMITER = '#'
 class Pica < Thor
   # NOTE: "special" means their name is generic and
   # thus we need to peek at the input/output rather
@@ -60,11 +63,14 @@ class Pica < Thor
     @link_relations = []
     link_relations.each do |e|
       e.values.first.each_pair do |k, v|
+        next if ['self', 'root'].include?(link_relation = k.split(DELIMITER).first)
+
         @link_relations << OpenStruct.new(
           {
-            input: e.keys.first.to_s.split('#').first,
-            output: v.split('#').first,
-            label: k.split('#').first
+            input: e.keys.first.to_s.split(DELIMITER).first,
+            output: v[1].split(DELIMITER).first,
+            direction: (v[0] === 'GET' ? 'none' : ''),
+            label: link_relation
           }
         )
       end
@@ -74,7 +80,7 @@ class Pica < Thor
     resources.flatten.each do |r|
       @representation = r
       if SPECIAL_RESOURCES.include?(r.name)
-        name = r.return_type.split('#').first
+        name = r.return_type.split(DELIMITER).first
         @representation.name = name
       end
 

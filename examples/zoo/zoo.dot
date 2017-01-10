@@ -1,31 +1,19 @@
 digraph {
 	
-	  animal_type -> animal_type [label="self"];
+	  animal_type -> tigers [label="tigers" dir="none"];
   
-	  animal_type -> tigers [label="tigers"];
+	  animal_type -> animals [label="up" dir="none"];
   
-	  animal_type -> animals [label="up"];
+	  animals -> animal_type [label="add_animal" dir=""];
   
-	  animal_type -> animals [label="root"];
+	  animals -> animal_type [label="animal_type" dir="none"];
   
-	  animals -> animals [label="self"];
+	  animals -> animals [label="up" dir="none"];
   
-	  animals -> animal_type [label="add_animal"];
+	  tiger -> empty_cage [label="free_him" dir=""];
   
-	  animals -> animal_type [label="animal_type"];
+	  tiger -> tiger [label="feed_him" dir=""];
   
-	  animals -> animals [label="up"];
-  
-	  animals -> animals [label="root"];
-  
-	  tiger -> tiger [label="self"];
-  
-	  tiger -> empty_cage [label="free_him"];
-  
-	  tiger -> tiger [label="feed_him"];
-  
-	  tiger -> tigers [label="up"];
-  
-	  tiger -> animals [label="root"];
+	  tiger -> tigers [label="up" dir="none"];
   
 }
