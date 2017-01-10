@@ -18,18 +18,18 @@
   "affordances":[
     {
       "name": "self",
-      "url": "/tigers",
+      "url": "/animals/tigers",
       "return_type": "tigers"
     },
     {
       "name": "tiger",
-      "url_template":"tigers/:animal_name",
+      "url_template":"animals/tigers/:animal_name",
       "return_type": "tiger#id"
     },
     {
       "name":"add_tiger",
       "http_method":"POST",
-      "url_template":"tigers",
+      "url_template":"animals/tigers",
       "return_type": "tiger#id",
       "params":{
         "name":"default name"

@@ -2,6 +2,8 @@ digraph {
 	
 	  animal_type -> tigers [label="tigers" dir="none" color="forestgreen"];
   
+	  animal_type -> giraffes [label="giraffes" dir="none" color="forestgreen"];
+  
 	  animals -> animal_type [label="add_animal" dir="" color="deeppink"];
   
 	  animals -> animal_type [label="animal_type" dir="none" color="forestgreen"];

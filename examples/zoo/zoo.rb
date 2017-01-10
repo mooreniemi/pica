@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './resources/animal_type.rb'
 require './resources/tigers.rb'
+require './resources/giraffes.rb'
 require './resources/animals.rb'
 require './resources/add_animal.rb'
 require './resources/tiger.rb'
@@ -12,6 +13,7 @@ require './resources/add_tiger.rb'
 class ZooApp < Sinatra::Application
   register Sinatra::Zoo::Resources::AnimalType
   register Sinatra::Zoo::Resources::Tiger
+  register Sinatra::Zoo::Resources::Giraffe
   register Sinatra::Zoo::Resources::Animal
   register Sinatra::Zoo::Resources::AddAnimal
   register Sinatra::Zoo::Resources::Tiger
