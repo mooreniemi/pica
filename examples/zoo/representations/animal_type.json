@@ -4,29 +4,29 @@
   "affordances":[
     {
       "name": "self",
-      "url": "animals/:animal_type",
+      "url_template": "http://localhost:9292/animals/:animal_type",
       "return_type": "animal_type#id"
     },
     {
       "name":"tigers",
       "http_method": "GET",
-      "url_template":"animals/tigers",
+      "url":"http://localhost:9292/animals/tigers",
       "return_type": "tigers"
     },
     {
       "name":"giraffes",
       "http_method": "GET",
-      "url_template":"animals/giraffes",
+      "url":"http://localhost:9292/animals/giraffes",
       "return_type": "giraffes"
     },
     {
       "name":"up",
-      "url": "animals",
+      "url": "http://localhost:9292/animals",
       "return_type": "animals"
     },
     {
       "name":"root",
-      "url": "animals",
+      "url": "http://localhost:9292/animals",
       "return_type": "animals"
     }
   ]

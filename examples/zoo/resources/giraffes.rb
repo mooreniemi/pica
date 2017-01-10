@@ -6,7 +6,7 @@ module Sinatra
     module Resources
       module Giraffe
         def self.registered(app)
-          app.get '/animals/giraffes' do
+          app.get '' do
             content_type :json
             {}.to_json
           end

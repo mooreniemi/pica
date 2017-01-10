@@ -9,7 +9,7 @@
       "affordances":[
         {
           "name": "self",
-          "url": "animals/tigers/oliver",
+          "url": "http://localhost:9292/animals/tigers/oliver",
           "return_type": "tiger#33"
         }
       ]
@@ -18,13 +18,13 @@
   "affordances":[
     {
       "name": "self",
-      "url": "/animals",
+      "url": "http://localhost:9292/animals",
       "return_type": "animals"
     },
     {
       "name":"add_animal",
       "http_method":"POST",
-      "url_template":"animals/:animal_type",
+      "url_template":"http://localhost:9292/animals/:animal_type",
       "return_type": "animal_type#id",
       "params":{
         "name":"default name"
@@ -33,17 +33,17 @@
     {
       "name":"animal_type",
       "http_method": "GET",
-      "url_template":"animals/:animal_type",
+      "url_template":"http://localhost:9292/animals/:animal_type",
       "return_type": "animal_type"
     },
     {
       "name":"up",
-      "url": "animals",
+      "url": "http://localhost:9292/animals",
       "return_type": "animals"
     },
     {
       "name":"root",
-      "url": "animals",
+      "url": "http://localhost:9292/animals",
       "return_type": "animals"
     }
   ]
