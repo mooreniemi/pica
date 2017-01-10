@@ -26,6 +26,15 @@ require 'active_support/inflector'
 require 'thor'
 
 DELIMITER = '#'
+# http://www.graphviz.org/doc/info/colors.html
+HTTP_COLORS = {
+  'DELETE' => 'firebrick4',
+  'PUT' => 'blue',
+  'POST' => 'deeppink'
+}
+HTTP_COLORS.default = 'forestgreen'
+HTTP_COLORS.freeze
+
 class Pica < Thor
   # NOTE: "special" means their name is generic and
   # thus we need to peek at the input/output rather
@@ -63,13 +72,14 @@ class Pica < Thor
     @link_relations = []
     link_relations.each do |e|
       e.values.first.each_pair do |k, v|
-        next if ['self', 'root'].include?(link_relation = k.split(DELIMITER).first)
+        next if SPECIAL_RESOURCES.include?(link_relation = k.split(DELIMITER).first)
 
         @link_relations << OpenStruct.new(
           {
             input: e.keys.first.to_s.split(DELIMITER).first,
             output: v[1].split(DELIMITER).first,
             direction: (v[0] === 'GET' ? 'none' : ''),
+            color: HTTP_COLORS[v[0]],
             label: link_relation
           }
         )

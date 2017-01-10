@@ -3,15 +3,15 @@ require 'sinatra/base'
 module Sinatra
   module Zoo
     module Resources
-      module Tiger
+      module AddTiger
         def self.registered(app)
-          app.get '/' do
-            # TODO replace with your logic returning tigers
+          app.post '/tigers' do
+            # TODO replace with your logic returning tiger
             "params: #{params}"
           end
         end
       end
     end
   end
-  register Sinatra::Zoo::Resources::Tiger
+  register Sinatra::Zoo::Resources::AddTiger
 end

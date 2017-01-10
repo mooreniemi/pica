@@ -5,7 +5,7 @@ module Sinatra
     module Resources
       module Tiger
         def self.registered(app)
-          app.get '/animals/tigers/:animal_name' do
+          app.get '/tigers/:animal_name' do
             # TODO replace with your logic returning tiger
             "params: #{params}"
           end
