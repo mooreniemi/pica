@@ -1,13 +1,14 @@
 require 'sinatra/base'
+require 'json'
 
 module Sinatra
   module <%= app_name.classify %>
     module Resources
       module <%= @representation.name.classify %>
         def self.registered(app)
-          app.<%= (@representation.http_method || "GET").downcase %> '/<%= @representation.url_template %>' do
-            # TODO replace with your logic returning <%= @representation.return_type.split('#').first %>
-            "params: #{params}"
+          app.<%= (@representation.http_method || "GET").downcase %> '<%= @representation.url_template %>' do
+            content_type :json
+            <%= (@representation.response || {}) %>.to_json
           end
         end
       end

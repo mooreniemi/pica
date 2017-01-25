@@ -3,9 +3,14 @@
 require 'json'
 require 'ostruct'
 require 'awesome_print'
+require 'uri'
 
-def read_json(file_name)
+def read_json_to_ostruct(file_name)
   JSON.parse(File.read(file_name), object_class: OpenStruct)
+end
+
+def read_json_to_hash(file_name)
+  JSON.parse(File.read(file_name))
 end
 
 def hash_affordances(o)
@@ -40,7 +45,7 @@ class Pica < Thor
   # thus we need to peek at the input/output rather
   # than rely on the link relation to specify
   SPECIAL_RESOURCES = ["self", "up", "root"]
-  attr_accessor :app_name
+  attr_accessor :app_name, :representations
   include Thor::Actions
 
   desc "g <directory of representations> <optional: app name>",
@@ -62,22 +67,27 @@ class Pica < Thor
   def create_resources(representations_dir)
     resources = []
     link_relations = []
+    @representations = {}
     Dir.glob("#{representations_dir}/*.json") do |json_file|
-      json = read_json(json_file)
+      json = read_json_to_ostruct(json_file)
       print_affordances(json)
       link_relations << hash_affordances(json)
+      @representations[File.basename(json_file, ".*" )] = json_file
       resources << json["affordances"]
     end
 
     @link_relations = []
+    graph = { nodes: [], edges: [] }
     link_relations.each do |e|
       e.values.first.each_pair do |k, v|
         next if SPECIAL_RESOURCES.include?(link_relation = k.split(DELIMITER).first)
 
+        graph[:nodes] << OpenStruct.new({id: id = e.keys.first.to_s.split(DELIMITER).first, name: id})
+        graph[:edges] << OpenStruct.new({source: id, target: target = v[1].split(DELIMITER).first, label: link_relation })
         @link_relations << OpenStruct.new(
           {
-            input: e.keys.first.to_s.split(DELIMITER).first,
-            output: v[1].split(DELIMITER).first,
+            input: id,
+            output: target,
             direction: (v[0] === 'GET' ? 'none' : ''),
             color: HTTP_COLORS[v[0]],
             label: link_relation
@@ -85,10 +95,23 @@ class Pica < Thor
         )
       end
     end
+
+    @nodes = graph[:nodes].uniq
+    @edges = graph[:edges].uniq
+    template('templates/cyto.erb', "#{app_name}/#{app_name}.json")
+
     template('templates/dot.erb', "#{app_name}/#{app_name}.dot")
 
     resources.flatten.each do |r|
       @representation = r
+      response = @representations[@representation.return_type.split(DELIMITER).first]
+      if response
+        @representation.response = read_json_to_hash(response)
+      end
+
+      unless @representation.url_template.nil?
+        @representation.url_template = URI(@representation.url_template).path
+      end
       if SPECIAL_RESOURCES.include?(r.name)
         name = r.return_type.split(DELIMITER).first
         @representation.name = name

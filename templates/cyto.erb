@@ -1,0 +1,12 @@
+{
+nodes: [
+<% @nodes.each do |node| %>
+  { data: { id: '<%= node.id %>', name: '<%= node.name %>' } },
+<% end %>
+],
+edges: [
+<% @edges.each do |edge| %>
+  { data: { source: '<%= edge.source %>', target: '<%= edge.target %>', label: '<%= edge.label %>' } },
+<% end %>
+]
+}
