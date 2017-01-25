@@ -82,8 +82,13 @@ class Pica < Thor
       e.values.first.each_pair do |k, v|
         next if SPECIAL_RESOURCES.include?(link_relation = k.split(DELIMITER).first)
 
-        graph[:nodes] << OpenStruct.new({id: id = e.keys.first.to_s.split(DELIMITER).first, name: id})
-        graph[:edges] << OpenStruct.new({source: id, target: target = v[1].split(DELIMITER).first, label: link_relation })
+        graph[:edges] << OpenStruct.new(
+          {
+            source: id = e.keys.first.to_s.split(DELIMITER).first,
+            target: target = v[1].split(DELIMITER).first,
+            label: link_relation
+          }
+        )
         @link_relations << OpenStruct.new(
           {
             input: id,
@@ -94,6 +99,13 @@ class Pica < Thor
           }
         )
       end
+    end
+
+    graph[:edges].each do |edge|
+      id = edge.source
+      graph[:nodes] << OpenStruct.new({id: id, name: id})
+      id = edge.target
+      graph[:nodes] << OpenStruct.new({id: id, name: id})
     end
 
     @nodes = graph[:nodes].uniq

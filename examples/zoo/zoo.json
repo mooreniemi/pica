@@ -3,11 +3,15 @@ nodes: [
 
   { data: { id: 'animal_type', name: 'animal_type' } },
 
+  { data: { id: 'tigers', name: 'tigers' } },
+
+  { data: { id: 'giraffes', name: 'giraffes' } },
+
   { data: { id: 'animals', name: 'animals' } },
 
   { data: { id: 'tiger', name: 'tiger' } },
 
-  { data: { id: 'tigers', name: 'tigers' } },
+  { data: { id: 'empty_cage', name: 'empty_cage' } },
 
 ],
 edges: [
