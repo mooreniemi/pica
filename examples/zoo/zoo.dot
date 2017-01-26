@@ -1,19 +1,19 @@
 digraph {
 	
-	  animal_type -> tigers [label="tigers" dir="none" color="forestgreen"];
+	  animal_type -> tigers [label="tigers" dir="none" color="green"];
   
-	  animal_type -> giraffes [label="giraffes" dir="none" color="forestgreen"];
+	  animal_type -> giraffes [label="giraffes" dir="none" color="green"];
   
-	  animals -> animal_type [label="add_animal" dir="" color="deeppink"];
+	  animals -> animal_type [label="add_animal" dir="" color="purple"];
   
-	  animals -> animal_type [label="animal_type" dir="none" color="forestgreen"];
+	  animals -> animal_type [label="animal_type" dir="none" color="green"];
   
-	  tiger -> empty_cage [label="free_him" dir="" color="firebrick4"];
+	  tiger -> empty_cage [label="free_him" dir="" color="red"];
   
 	  tiger -> tiger [label="feed_him" dir="" color="blue"];
   
-	  tigers -> tiger [label="tiger" dir="none" color="forestgreen"];
+	  tigers -> tiger [label="tiger" dir="none" color="green"];
   
-	  tigers -> tiger [label="add_tiger" dir="" color="deeppink"];
+	  tigers -> tiger [label="add_tiger" dir="" color="purple"];
   
 }

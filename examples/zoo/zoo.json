@@ -16,21 +16,21 @@ nodes: [
 ],
 edges: [
 
-  { data: { source: 'animal_type', target: 'tigers', label: 'tigers' } },
+  { data: { source: 'animal_type', target: 'tigers', label: 'tigers', color: 'green' } },
 
-  { data: { source: 'animal_type', target: 'giraffes', label: 'giraffes' } },
+  { data: { source: 'animal_type', target: 'giraffes', label: 'giraffes', color: 'green' } },
 
-  { data: { source: 'animals', target: 'animal_type', label: 'add_animal' } },
+  { data: { source: 'animals', target: 'animal_type', label: 'add_animal', color: 'purple' } },
 
-  { data: { source: 'animals', target: 'animal_type', label: 'animal_type' } },
+  { data: { source: 'animals', target: 'animal_type', label: 'animal_type', color: 'green' } },
 
-  { data: { source: 'tiger', target: 'empty_cage', label: 'free_him' } },
+  { data: { source: 'tiger', target: 'empty_cage', label: 'free_him', color: 'red' } },
 
-  { data: { source: 'tiger', target: 'tiger', label: 'feed_him' } },
+  { data: { source: 'tiger', target: 'tiger', label: 'feed_him', color: 'blue' } },
 
-  { data: { source: 'tigers', target: 'tiger', label: 'tiger' } },
+  { data: { source: 'tigers', target: 'tiger', label: 'tiger', color: 'green' } },
 
-  { data: { source: 'tigers', target: 'tiger', label: 'add_tiger' } },
+  { data: { source: 'tigers', target: 'tiger', label: 'add_tiger', color: 'purple' } },
 
 ]
 }

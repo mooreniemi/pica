@@ -6,7 +6,7 @@ nodes: [
 ],
 edges: [
 <% @edges.each do |edge| %>
-  { data: { source: '<%= edge.source %>', target: '<%= edge.target %>', label: '<%= edge.label %>' } },
+  { data: { source: '<%= edge.source %>', target: '<%= edge.target %>', label: '<%= edge.label %>', color: '<%= edge.color %>' } },
 <% end %>
 ]
 }

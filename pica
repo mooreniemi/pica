@@ -32,12 +32,13 @@ require 'thor'
 
 DELIMITER = '#'
 # http://www.graphviz.org/doc/info/colors.html
+# https://en.wikipedia.org/wiki/Web_colors#HTML_color_names
 HTTP_COLORS = {
-  'DELETE' => 'firebrick4',
+  'DELETE' => 'red',
   'PUT' => 'blue',
-  'POST' => 'deeppink'
+  'POST' => 'purple'
 }
-HTTP_COLORS.default = 'forestgreen'
+HTTP_COLORS.default = 'green'
 HTTP_COLORS.freeze
 
 class Pica < Thor
@@ -86,7 +87,8 @@ class Pica < Thor
           {
             source: id = e.keys.first.to_s.split(DELIMITER).first,
             target: target = v[1].split(DELIMITER).first,
-            label: link_relation
+            label: link_relation,
+            color: HTTP_COLORS[v[0]]
           }
         )
         @link_relations << OpenStruct.new(
