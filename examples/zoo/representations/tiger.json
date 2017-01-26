@@ -13,16 +13,23 @@
       "return_type": "tiger#33"
     },
     {
-      "name":"free_him",
+      "name":"free",
       "http_method":"DELETE",
-      "url_template":"http://localhost:9292/animals/tigers/cages/:animal_name",
+      "url_template":"http://localhost:9292/animals/:animal_type/cages/:animal_name",
       "url":"http://localhost:9292/animals/tigers/cages/oliver",
       "return_type": "empty_cage"
     },
     {
-      "name":"feed_him",
+      "name":"check_hunger",
+      "http_method":"GET",
+      "url_template":"http://localhost:9292/animals/:animal_type/:animal_name/stomach",
+      "url":"http://localhost:9292/animals/tigers/oliver/stomach",
+      "return_type": "tiger#33"
+    },
+    {
+      "name":"feed",
       "http_method":"PUT",
-      "url_template":"http://localhost:9292/animals/tigers/:animal_name/stomach",
+      "url_template":"http://localhost:9292/animals/:animal_type/:animal_name/stomach",
       "url":"http://localhost:9292/animals/tigers/oliver/stomach",
       "return_type": "tiger#33",
       "params":{

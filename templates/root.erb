@@ -1,0 +1,17 @@
+require 'sinatra/base'
+require 'json'
+
+module Sinatra
+  module <%= app_name.classify %>
+    module Resources
+      module <%= @root.name.classify %>
+        def self.registered(app)
+            app.get '/' do
+              redirect <%= @root.route %>
+            end
+          end
+        end
+      end
+    end
+  register Sinatra::<%= app_name.classify%>::Resources::<%= @root.name.classify %>
+end

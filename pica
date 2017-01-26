@@ -41,6 +41,8 @@ HTTP_COLORS = {
 HTTP_COLORS.default = 'green'
 HTTP_COLORS.freeze
 
+GENERIC_RESOURCE = /^:(.*)/
+
 class Pica < Thor
   # NOTE: "special" means their name is generic and
   # thus we need to peek at the input/output rather
@@ -74,7 +76,8 @@ class Pica < Thor
       print_affordances(json)
       link_relations << hash_affordances(json)
       @representations[File.basename(json_file, ".*" )] = json_file
-      resources << json["affordances"]
+      @root = json["affordances"].find { |o| o.name == 'root' }
+      resources << json["affordances"].select { |o| o.name != 'self' }
     end
 
     @link_relations = []
@@ -116,16 +119,21 @@ class Pica < Thor
 
     template('templates/dot.erb', "#{app_name}/#{app_name}.dot")
 
-    resources.flatten.each do |r|
+    resources.flatten.reject {|o| GENERIC_RESOURCE.match(o.name) }.each do |r|
       @representation = r
       response = @representations[@representation.return_type.split(DELIMITER).first]
       if response
         @representation.response = read_json_to_hash(response)
       end
 
+      if @representation.url_template.nil?
+        @representation.url_template = @representation.url
+      end
+
       unless @representation.url_template.nil?
         @representation.url_template = URI(@representation.url_template).path
       end
+
       if SPECIAL_RESOURCES.include?(r.name)
         name = r.return_type.split(DELIMITER).first
         @representation.name = name
@@ -137,7 +145,7 @@ class Pica < Thor
       )
     end
 
-    resources.compact.flatten
+    resources.compact.flatten.reject {|o| GENERIC_RESOURCE.match(o.name) }
   end
 
   def routes_from(resources)

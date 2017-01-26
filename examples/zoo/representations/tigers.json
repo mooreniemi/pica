@@ -1,6 +1,7 @@
 {
   "representation_uuid": "tigers#145332f8-73f5-47ca-a728-4754ba0a3e06",
   "name":"tigers",
+  "is_a": ":animal_type",
   "tigers": [
     {
       "representation_uuid": "tiger#51e50c5f-83e5-4622-ae8a-85bf4b820580",

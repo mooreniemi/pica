@@ -4,9 +4,9 @@ require 'json'
 module Sinatra
   module Zoo
     module Resources
-      module FreeHim
+      module AddAnimalType
         def self.registered(app)
-          app.delete '/animals/tigers/cages/:animal_name' do
+          app.post '/animals/:animal_type' do
             content_type :json
             {}.to_json
           end
@@ -14,5 +14,5 @@ module Sinatra
       end
     end
   end
-  register Sinatra::Zoo::Resources::FreeHim
+  register Sinatra::Zoo::Resources::AddAnimalType
 end

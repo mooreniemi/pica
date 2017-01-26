@@ -1,16 +1,24 @@
 digraph {
 	
-	  animal_type -> tigers [label="tigers" dir="none" color="green"];
+	  animals -> :animal_type [label="add_animal_type" dir="" color="purple"];
   
-	  animal_type -> giraffes [label="giraffes" dir="none" color="green"];
+	  animals -> giraffes [label="giraffes" dir="none" color="green"];
   
-	  animals -> animal_type [label="add_animal" dir="" color="purple"];
+	  animals -> tigers [label="tigers" dir="none" color="green"];
   
-	  animals -> animal_type [label="animal_type" dir="none" color="green"];
+	  giraffe -> empty_cage [label="free" dir="" color="red"];
   
-	  tiger -> empty_cage [label="free_him" dir="" color="red"];
+	  giraffe -> giraffe [label="feed" dir="" color="blue"];
   
-	  tiger -> tiger [label="feed_him" dir="" color="blue"];
+	  giraffes -> giraffe [label="giraffe" dir="none" color="green"];
+  
+	  giraffes -> giraffe [label="add_giraffe" dir="" color="purple"];
+  
+	  tiger -> empty_cage [label="free" dir="" color="red"];
+  
+	  tiger -> tiger [label="check_hunger" dir="none" color="green"];
+  
+	  tiger -> tiger [label="feed" dir="" color="blue"];
   
 	  tigers -> tiger [label="tiger" dir="none" color="green"];
   
