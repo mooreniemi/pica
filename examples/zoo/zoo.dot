@@ -1,27 +1,27 @@
 digraph {
 	
-	  animals -> :animal_type [label="add_animal_type" dir="" color="purple"];
+	  "animals" -> ":animal_type" [label="add_animal_type" dir="" color="purple"];
   
-	  animals -> giraffes [label="giraffes" dir="none" color="green"];
+	  "animals" -> "giraffes" [label="giraffes" dir="none" color="green"];
   
-	  animals -> tigers [label="tigers" dir="none" color="green"];
+	  "animals" -> "tigers" [label="tigers" dir="none" color="green"];
   
-	  giraffe -> empty_cage [label="free" dir="" color="red"];
+	  "giraffe" -> "empty_cage" [label="free" dir="" color="red"];
   
-	  giraffe -> giraffe [label="feed" dir="" color="blue"];
+	  "giraffe" -> "giraffe" [label="feed" dir="" color="blue"];
   
-	  giraffes -> giraffe [label="giraffe" dir="none" color="green"];
+	  "giraffes" -> "giraffe" [label="giraffe" dir="none" color="green"];
   
-	  giraffes -> giraffe [label="add_giraffe" dir="" color="purple"];
+	  "giraffes" -> "giraffe" [label="add_giraffe" dir="" color="purple"];
   
-	  tiger -> empty_cage [label="free" dir="" color="red"];
+	  "tiger" -> "empty_cage" [label="free" dir="" color="red"];
   
-	  tiger -> tiger [label="check_hunger" dir="none" color="green"];
+	  "tiger" -> "tiger" [label="check_hunger" dir="none" color="green"];
   
-	  tiger -> tiger [label="feed" dir="" color="blue"];
+	  "tiger" -> "tiger" [label="feed" dir="" color="blue"];
   
-	  tigers -> tiger [label="tiger" dir="none" color="green"];
+	  "tigers" -> "tiger" [label="tiger" dir="none" color="green"];
   
-	  tigers -> tiger [label="add_tiger" dir="" color="purple"];
+	  "tigers" -> "tiger" [label="add_tiger" dir="" color="purple"];
   
 }
