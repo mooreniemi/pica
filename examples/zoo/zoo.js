@@ -1,4 +1,4 @@
-module.exports = {
+var graphData = {
   nodes: [
  { data: { id: 'animals', name: 'animals' } },
  { data: { id: ':animal_type', name: ':animal_type' } },

@@ -1,4 +1,4 @@
-module.exports = {
+var graphData = {
   nodes: [
 <% @nodes.each do |node| %> { data: { id: '<%= node.id %>', name: '<%= node.name %>' } },
 <% end %>
